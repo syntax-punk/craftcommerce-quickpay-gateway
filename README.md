@@ -1,4 +1,4 @@
-# QuickpayGateway plugin for Craft CMS
+# Quickpay Gateway plugin for Craft CMS
 
 Craft Commerce Quickpay Gateway plugin
 
