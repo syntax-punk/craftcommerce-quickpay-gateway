@@ -1,0 +1,32 @@
+{
+	"name": "craftcommerce-quickpay-gateway/quickpaygateway",
+	"description": "Craft Commerce Quickpay Gateway plugin",
+	"type": "craft-plugin",
+	"keywords": [
+		"gateway",
+		"merchant",
+		"craftcommerce",
+		"craftcms",
+		"adapter",
+		"omnipay",
+		"pay",
+		"payment",
+		"quickpay"
+	],
+	"authors": [
+		{
+			"name": "Voogie James",
+			"homepage": "https://github.com/voogieJames"
+		}
+	],
+	"autoload": {
+		"psr-4": { "Omnipay\\Quickpay\\" : "src/" }
+	},
+	"require": {
+		"omnipay/common": "~2.0"
+	},
+	"require-dev": {
+		"omnipay/tests": "~2.0"
+	},
+	"license": "MIT"
+}
