@@ -94,7 +94,7 @@ class QuickpayGatewayPlugin extends BasePlugin
      */
     public function getReleaseFeedUrl()
     {
-        return 'https://raw.githubusercontent.com/craftcommerce-quickpay-gateway/quickpaygateway/master/releases.json';
+        return '';
     }
 
     /**
@@ -104,7 +104,7 @@ class QuickpayGatewayPlugin extends BasePlugin
      */
     public function getVersion()
     {
-        return '0.1';
+        return '0.2.3';
     }
 
     /**
