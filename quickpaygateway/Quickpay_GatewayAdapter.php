@@ -1,5 +1,5 @@
 <?php
-namespace \Commerce\Gateways\Omnipay\Quickpay_GatewayAdapter;
+namespace Commerce\Gateways\Omnipay;
 
 use Commerce\Gateways\OffsiteGatewayAdapter;
 
@@ -7,6 +7,6 @@ class Quickpay_GatewayAdapter extends OffsiteGatewayAdapter
 {
     public function handle()
     {
-        return "Quickpay";
+        return "Quickpay_Ecommerce";
     }
 }

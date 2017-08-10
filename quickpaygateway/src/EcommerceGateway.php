@@ -6,9 +6,9 @@ use Omnipay\Common\AbstractGateway;
 use Omnipay\Quickpay\Message\Notification;
 
 /**
- * Quickpay QuickpayGateway
+ * Quickpay EcommerceGateway
  */
-class QuickpayGateway extends AbstractGateway
+class EcommerceGateway extends AbstractGateway
 {
 	/**
 	 * @return string

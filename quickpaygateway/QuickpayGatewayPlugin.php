@@ -1,8 +1,8 @@
 <?php
 /**
- * QuickpayGateway plugin for Craft CMS
+ * EcommerceGateway plugin for Craft CMS
  *
- * Craft Commerce Quickpay QuickpayGateway plugin
+ * Craft Commerce Quickpay EcommerceGateway plugin
  *
  * --snip--
  * Craft plugins are very much like little applications in and of themselves. We’ve made it as simple as we can,
@@ -17,13 +17,13 @@
  * @author    Voogie James
  * @copyright Copyright (c) 2017 Voogie James
  * @link      https://github.com/voogieJames
- * @package   QuickpayGateway
+ * @package   EcommerceGateway
  * @since     0.1
  */
 
 namespace Craft;
 
-class QuickpayPlugin extends BasePlugin
+class QuickpayGatewayPlugin extends BasePlugin
 {
     /**
      * Called after the plugin class is instantiated; do any one-time initialization here such as hooks and events:
@@ -38,9 +38,19 @@ class QuickpayPlugin extends BasePlugin
      *
      * @return mixed
      */
+
+    private $commerceInstalled = false;
+
     public function init()
     {
-        parent::init();
+        $commerce = craft()->db->createCommand()
+            ->select('id')
+            ->from('plugins')
+            ->where("class = 'Commerce'")
+            ->queryScalar();
+        if($commerce){
+            $this->commerceInstalled = true;
+        }
     }
 
     /**
@@ -50,7 +60,7 @@ class QuickpayPlugin extends BasePlugin
      */
     public function getName()
     {
-         return Craft::t('QuickpayGateway');
+         return Craft::t('Quickpay Gateway');
     }
 
     /**
@@ -61,7 +71,7 @@ class QuickpayPlugin extends BasePlugin
      */
     public function getDescription()
     {
-        return Craft::t('Craft Commerce Quickpay QuickpayGateway plugin');
+        return Craft::t('Craft Commerce Quickpay EcommerceGateway plugin');
     }
 
     /**

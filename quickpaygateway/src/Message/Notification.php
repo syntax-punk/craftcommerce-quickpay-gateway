@@ -61,7 +61,7 @@ class Notification implements NotificationInterface
     }
 
     /**
-     * QuickpayGateway Reference
+     * EcommerceGateway Reference
      *
      * @return string A reference provided by the gateway to represent this transaction
      */

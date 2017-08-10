@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # QuickpayGateway plugin for Craft CMS
 
 Craft Commerce Quickpay Gateway plugin
@@ -35,3 +36,7 @@ Some things to do, and ideas for potential features:
 * Release it
 
 Brought to you by [Voogie James](https://github.com/voogieJames)
+=======
+# craftcommerce-quickpay-gateway
+Quickpay Gateway adapter for Craft Commerce
+>>>>>>> 63d022e177c6a31d968a3cd0b5b37a319bf4ce00
