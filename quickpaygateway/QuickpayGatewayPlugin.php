@@ -82,7 +82,7 @@ class QuickpayGatewayPlugin extends BasePlugin
      */
     public function getDocumentationUrl()
     {
-        return 'https://github.com/craftcommerce-quickpay-gateway/quickpaygateway/blob/master/README.md';
+        return 'https://github.com/voogieJames/craftcommerce-quickpay-gateway/blob/master/README.md';
     }
 
     /**
@@ -117,7 +117,7 @@ class QuickpayGatewayPlugin extends BasePlugin
      */
     public function getSchemaVersion()
     {
-        return '0.1';
+        return '0.2.3';
     }
 
     /**
