@@ -15,6 +15,8 @@ To install QuickpayGateway plugin, follow these steps:
 5. The plugin folder should be named `quickpaygateway` for Craft to see it.  GitHub recently started appending `-master` (the branch name) to the name of the folder for zip file downloads.
 6. Make sure that you have `composer.phar`. Navigate to the `quickpaygateway` directory and run `composer.phar install` 
 
+-NOTE- If Craft Admin panel cannot find the plugin, that might be a permission issues, to solve it, just navigate to the craft/plugins directory and execute the following command in your terminal: `chmod 755 quickpaygateway/` 
+
 QuickpayGateway works on Craft 2.4.x and Craft 2.5.x.
 
 ## QuickpayGateway Overview
@@ -23,4 +25,4 @@ QuickpayGateway works on Craft 2.4.x and Craft 2.5.x.
 *   The Adapter utilizes Quickpay payment processor wrapped into Omnipay driver, which was forked from [NobrainerWeb](https://github.com/NobrainerWeb/omnipay-quickpay)
 *   [Omnipay](https://omnipay.thephpleague.com/) is a payment processing library for PHP. 
 
-###Enjoy!
+### Enjoy!
