@@ -2,6 +2,7 @@
 
 namespace Omnipay\Quickpay;
 
+use function Craft\craft;
 use Omnipay\Common\AbstractGateway;
 use Omnipay\Quickpay\Message\Notification;
 
@@ -403,4 +404,19 @@ class EcommerceGateway extends AbstractGateway
 	{
 		return $this->createRequest('\Omnipay\Quickpay\Message\LinkRequest', $parameters);
 	}
+
+    public function sessionSet($key, $value)
+    {
+        craft()->httpSession->add($key, $value);
+    }
+
+    public function sessionGet($key)
+    {
+        $result = craft()->httpSession->get($key);
+        return $result;
+    }
+
+    public function sessionDump($key) {
+        $result = craft()->httpSession->remove($key);
+    }
 }

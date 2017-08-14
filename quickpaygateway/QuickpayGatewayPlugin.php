@@ -104,7 +104,7 @@ class QuickpayGatewayPlugin extends BasePlugin
      */
     public function getVersion()
     {
-        return '0.2.3';
+        return '1.0.3';
     }
 
     /**
@@ -117,7 +117,7 @@ class QuickpayGatewayPlugin extends BasePlugin
      */
     public function getSchemaVersion()
     {
-        return '0.2.3';
+        return '1.0.3';
     }
 
     /**

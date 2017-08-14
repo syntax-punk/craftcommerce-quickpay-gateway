@@ -47,6 +47,27 @@ class LinkResponse extends Response implements RedirectResponseInterface
         return $data->url;
     }
 
+    public function getResponseCode()
+    {
+        $body = json_decode($this->getResponseBody());
+        if (isset($body->error_code)) {
+            return $body->error_code;
+        }
+        if (isset($body->statusCode)) {
+            return $body->statusCode;
+        }
+        return "999";
+    }
+
+    public function getResponseMsg()
+    {
+        $body = json_decode($this->getResponseBody());
+        if (isset($body->message)) {
+            return $body->message;
+        }
+        return "none";
+    }
+
     /**
      * @return string
      * @codeCoverageIgnore
@@ -64,6 +85,4 @@ class LinkResponse extends Response implements RedirectResponseInterface
     {
         return [];
     }
-
-
 }
