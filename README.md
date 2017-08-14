@@ -13,6 +13,7 @@ To install QuickpayGateway plugin, follow these steps:
 3.  -OR- install with Composer via `composer require craftcommerce-quickpay-gateway/quickpaygateway`
 4. Install plugin in the Craft Control Panel under Settings > Plugins
 5. The plugin folder should be named `quickpaygateway` for Craft to see it.  GitHub recently started appending `-master` (the branch name) to the name of the folder for zip file downloads.
+6. Make sure that you have `composer.phar`. Navigate to the `quickpaygateway` directory and run `composer.phar install` 
 
 QuickpayGateway works on Craft 2.4.x and Craft 2.5.x.
 
