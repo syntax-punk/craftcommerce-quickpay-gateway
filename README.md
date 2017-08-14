@@ -21,3 +21,5 @@ QuickpayGateway works on Craft 2.4.x and Craft 2.5.x.
 *   [QuickPay](https://quickpay.net/) is a Payment Service Provider that accept all common payment methods - credit cards, bank transfers, invoices, and more.
 *   The Adapter utilizes Quickpay payment processor wrapped into Omnipay driver, which was forked from [NobrainerWeb](https://github.com/NobrainerWeb/omnipay-quickpay)
 *   [Omnipay](https://omnipay.thephpleague.com/) is a payment processing library for PHP. 
+
+###Enjoy!
