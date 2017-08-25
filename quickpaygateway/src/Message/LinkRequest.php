@@ -51,7 +51,7 @@ class LinkRequest extends AbstractRequest
     }
 
 
-    public function send()
+    public function send($framed=false)
     {
         $fullData  = $this->getData();
         $reference = $this->getTransactionReference();
@@ -65,8 +65,7 @@ class LinkRequest extends AbstractRequest
 
             $httpRequest = $this->httpClient->createRequest('POST', $url, null, $data)
                 ->setHeader('Authorization', ' Basic ' . base64_encode(":" . $this->getApikey()))
-                ->setHeader('Accept-Version', ' v10')
-                ->setHeader('QuickPay-Callback-Url', $this->getNotifyUrl());
+                ->setHeader('Accept-Version', ' v10');
             try {
                 $httpResponse = $httpRequest->send();
             } catch (ClientErrorResponseException $e) {
@@ -82,6 +81,7 @@ class LinkRequest extends AbstractRequest
         }
         unset($fullData['order_id']);
         unset($fullData['currency']);
+        $fullData['framed'] = $framed;
 
         $url = $this->getEndPoint() . '/' . $this->getTypeOfRequest() . '/' . $reference . '/link';
 

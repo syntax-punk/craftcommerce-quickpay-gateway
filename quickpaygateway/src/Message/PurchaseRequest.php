@@ -30,18 +30,18 @@ class PurchaseRequest extends AbstractRequest
             "currency"                     => $this->getCurrency(),
             "continueurl"                  => $this->getReturnUrl(),
             "cancelurl"                    => $this->getCancelUrl(),
-            "callbackurl"                  => $this->getNotifyUrl(),
-            "language"                     => $this->getLanguage(),
-            "google_analytics_tracking_id" => $this->getGoogleAnalyticsTrackingID(),
-            "autocapture"                  => 1,
-            "type"                         => $this->getType(),
-            "payment_methods"              => $this->getPaymentMethods()
+            "callbackurl"                  => $this->getNotifyUrl()
+//            "language"                     => $this->getLanguage(),
+//            "google_analytics_tracking_id" => $this->getGoogleAnalyticsTrackingID(),
+//            "autocapture"                  => 1,
+//            "type"                         => $this->getType(),
+//            "payment_methods"              => $this->getPaymentMethods()
         );
 
         // it seems description param is not always allowed, depending on the Type set
-        if ($this->getDescription() != '') {
-            $params['description'] = $this->getDescription();
-        }
+//        if ($this->getDescription() != '') {
+//            $params['description'] = $this->getDescription();
+//        }
 
         return $params;
     }

@@ -32,6 +32,8 @@ class EcommerceGateway extends AbstractGateway
 			'apikey'                       => '',
 			'privatekey'                   => '',
 			'language'                     => '',
+            'default_callback_url'         => '',
+            'default_redirect_url'         => '',
 			'google_analytics_tracking_id' => '',
 			'google_analytics_client_id'   => '',
 			'description'                  => '',
@@ -245,6 +247,27 @@ class EcommerceGateway extends AbstractGateway
 		return boolval($this->getParameter('synchronized'));
 	}
 
+	public function getDefaultCallbackUrl()
+    {
+        return $this->getParameter('default_callback_url');
+    }
+
+    public function setDefaultCallbackUrl($value)
+    {
+        return $this->setParameter('default_callback_url', $value);
+    }
+
+    public function getDefaultRedirectUrl()
+    {
+        return $this->getParameter('default_redirect_url');
+    }
+
+    public function setDefaultRedirectUrl($value)
+    {
+        return $this->setParameter('default_redirect_url', $value);
+    }
+
+
 	/**
 	 * Start an authorize request
 	 *
@@ -404,6 +427,33 @@ class EcommerceGateway extends AbstractGateway
 		return $this->createRequest('\Omnipay\Quickpay\Message\LinkRequest', $parameters);
 	}
 
+    /**
+     * @param $amount
+     * @param $currency
+     * @param $transactionId
+     * @param $apiKey
+     * @param $agreement
+     * @param $fullId
+     * @return \Omnipay\Common\Message\ResponseInterface
+     */
+    public function startLinkSession($amount, $currency, $transactionId, $apiKey, $agreement, $fullId) {
+
+        $params = [
+            'apikey' => $apiKey,
+            'transactionId' => $transactionId,
+            'agreement' => $agreement,
+            'amount' => $amount,
+            'currency' => $currency
+            ];
+
+        $linkRequest = $this->link($params);
+        $linkRequest->setNotifyUrl($this->getDefaultCallbackUrl());
+        $linkRequest->setReturnUrl($this->getDefaultRedirectUrl());
+        $linkResponse = $linkRequest->send();
+        return $linkResponse;
+    }
+
+	//  HTTP SESSION MANIPULATIONS
     public function sessionSet($key, $value)
     {
         \Craft\craft()->httpSession->add($key, $value);
@@ -417,5 +467,6 @@ class EcommerceGateway extends AbstractGateway
 
     public function sessionDump($key) {
         $result = \Craft\craft()->httpSession->remove($key);
+        return $result;
     }
 }
