@@ -2,6 +2,7 @@
 
 namespace Omnipay\Quickpay;
 
+use Craft\Craft;
 use Omnipay\Common\AbstractGateway;
 use Omnipay\Quickpay\Message\Notification;
 
@@ -276,6 +277,13 @@ class EcommerceGateway extends AbstractGateway
 	 */
 	public function authorize(array $parameters = array())
 	{
+	    if(!empty($this->getDefaultRedirectUrl())) {
+            $parameters['returnUrl'] = \Craft\craft()->getSiteUrl() . $this->getDefaultRedirectUrl() . '?order=' . $parameters['order']['number'];
+        }
+//        if(!empty($this->getDefaultCallbackUrl())) {
+//            $parameters['notifyUrl'] = \Craft\craft()->getSiteUrl() . $this->getDefaultCallbackUrl();
+//        }
+
 		return $this->createRequest('\Omnipay\Quickpay\Message\AuthorizeRequest', $parameters);
 	}
 
@@ -287,6 +295,12 @@ class EcommerceGateway extends AbstractGateway
 	 */
 	public function purchase(array $parameters = array())
 	{
+        if(!empty($this->getDefaultRedirectUrl())) {
+            $parameters['returnUrl'] = \Craft\craft()->getSiteUrl() . $this->getDefaultRedirectUrl() . '?order=' . $parameters['order']['number'];
+        } else {
+            $parameters['returnUrl'] = $parameters['order']['returnUrl'];
+        }
+
 		return $this->createRequest('\Omnipay\Quickpay\Message\PurchaseRequest', $parameters);
 	}
 
